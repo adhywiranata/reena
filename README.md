@@ -52,16 +52,27 @@ It is recommended to always make every component, especially **Atoms** and **Mol
 
 ## Getting Started
 
-```
+### Setup
+
+```bash
 git clone https://github.com/adhywiranata/reena.git
 cd reena
 yarn install
 react-native run-ios
 ```
 
+### Changing App's Name
+
+:sparkles: *COMING SOON*
+
+### Adding Third Party Components
+
+When adding third party components, it is recommended to put them as an **Atom**.
+
 ## Feature Checklist
 
 ### Features
+
 - [ ] Redux State Management
 - [ ] Redux Saga
 - [ ] ImmutableJS
@@ -71,7 +82,12 @@ react-native run-ios
 - [ ] Recompose
 - [ ] Redux
 - [ ] Redux Saga
+
+### Higher Order Components
+
 - [x] Network connectivity HOC
+- [x] Redux Connect Wrapper HOC
+- [ ] GraphQL Connect Wrapper HOC
 
 ## Debugging
 
