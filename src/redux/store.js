@@ -1,6 +1,6 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
-const rootReducer = () => ({
+const rootReducer = combineReducers({
   test: () => ({ message: 'hey' }),
 });
 

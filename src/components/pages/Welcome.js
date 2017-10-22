@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {
+  connectHOC,
   networkAwareHOC,
 } from 'reena/src/utilities/HOCs';
 import {
@@ -11,6 +12,12 @@ import {
 } from 'reena/src/components/molecules';
 
 class WelcomePage extends React.Component {
+  static mapStateToProps(state) {
+    return {
+      test: state,
+    };
+  }
+
   constructor(p, c) {
     super(p, c);
 
@@ -23,10 +30,10 @@ class WelcomePage extends React.Component {
     return (
       <ContainerMolecule>
         <TextAtom>{this.state.title}</TextAtom>
-        <TextAtom>{JSON.stringify(this.props.networkStatus)}</TextAtom>
+        <TextAtom>{JSON.stringify(this.props)}</TextAtom>
       </ContainerMolecule>
     );
   }
 }
 
-export default networkAwareHOC(WelcomePage);
+export default networkAwareHOC(connectHOC(WelcomePage));
