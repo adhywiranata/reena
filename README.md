@@ -5,17 +5,6 @@ Reena is a React Native Starter Kit with opinionated component structures and st
 
 ## The Big Idea
 
-### Features
-- Redux State Management
-- Redux Saga
-- ImmutableJS
-- Flow static type checker
-- CodePush
-- Crashlitics
-- Recompose
-- Redux and React-Redux
-- Redux Saga
-
 ### Architecture Goals
 
 - Abide to Single Responsibility Principle (SRP)
@@ -67,6 +56,20 @@ cd reena
 yarn install
 react-native run-ios
 ```
+
+## Feature Checklist
+
+### Features
+- [ ] Redux State Management
+- [ ] Redux Saga
+- [ ] ImmutableJS
+- [ ] Flow static type checker
+- [ ] CodePush
+- [ ] Crashlitics
+- [ ] Recompose
+- [ ] Redux
+- [ ] Redux Saga
+- [ ] Network connectivity HOC
 
 ## Debugging
 
