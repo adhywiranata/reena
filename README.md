@@ -71,7 +71,7 @@ react-native run-ios
 - [ ] Recompose
 - [ ] Redux
 - [ ] Redux Saga
-- [ ] Network connectivity HOC
+- [x] Network connectivity HOC
 
 ## Debugging
 
