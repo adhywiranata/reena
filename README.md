@@ -82,6 +82,7 @@ When adding third party components, it is recommended to put them as an **Atom**
 - [ ] Recompose
 - [ ] Redux
 - [ ] Redux Saga
+- [ ] Redux Persist
 
 ### Higher Order Components
 
