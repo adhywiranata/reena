@@ -1,1 +1,5 @@
-// TODO map pages here
+import Welcome from './Welcome';
+
+export {
+  Welcome,
+};
