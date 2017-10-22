@@ -5,6 +5,7 @@
     },
     "rules": {
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-      "no-named-as-default": "off"
+      "no-named-as-default": "off",
+      "no-underscore-dangle": "off"
     }
 }
