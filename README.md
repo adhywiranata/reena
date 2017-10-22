@@ -74,15 +74,11 @@ When adding third party components, it is recommended to put them as an **Atom**
 ### Features
 
 - [ ] Redux State Management
-- [ ] Redux Saga
 - [ ] ImmutableJS
 - [ ] Flow static type checker
 - [ ] CodePush
 - [ ] Crashlitics
 - [ ] Recompose
-- [ ] Redux
-- [ ] Redux Saga
-- [ ] Redux Persist
 
 ### Higher Order Components
 
