@@ -1,7 +1,11 @@
 # Reena
 > :sparkles: React Native Starter Kit
 
-## Features
+Reena is a React Native Starter Kit with opinionated component structures and state management.
+
+## The Big Idea
+
+### Features
 - Redux State Management
 - Redux Saga
 - ImmutableJS
@@ -12,7 +16,7 @@
 - Redux and React-Redux
 - Redux Saga
 
-## Architecture Goals
+### Architecture Goals
 
 - Abide to Single Responsibility Principle (SRP)
 - Component composability and reusability
@@ -21,13 +25,13 @@
 - Ensuring testability
 - Immutable Data Structure
 
-## Component Structures
+### Component Structures
 
-This starter kit adopts the [Atomic Design Principle](http://bradfrost.com/blog/post/atomic-web-design/), with several modifications. Components are structured in a way a chemical elements structured. Below are the list of elements, sorted from the smallest.
+Reena adopts the [Atomic Design Principle](http://bradfrost.com/blog/post/atomic-web-design/) to group React components, with Templates renamed as Pagelets since mobile's page structure is a bit different from the web and to have each groups ordered alphabetically. Below are the list of the group, sorted from the smallest.
 
 - **Atoms**
 
-  Atoms are the basic core components. It wraps around native components or custom components with very small structure. Atom consists of nucleuses and neutrons. Nucleuses are the core components with their own pre-defined and stackable styles, while neutrons are the common styles applied for several nucleuses, to avoid styling duplications for Atoms. **Atoms** should not have their own state, and are pure components.
+  Atoms are the basic core components. It wraps around native components or custom components with very small structure. Atom consists of nucleuses and neutrons. **Nucleuses** are the core components with their own pre-defined and stackable styles, while **neutrons** are the common styles applied for several nucleuses, to avoid styling duplications for Atoms. **Atoms** should not have their own state, and are pure components.
 
 - **Molecules**
 
@@ -45,6 +49,29 @@ This starter kit adopts the [Atomic Design Principle](http://bradfrost.com/blog/
 
   Pages are the outer-most component, consists of **Pagelets**, **Organisms**, or **Molecules**. Both **Organisms** and **Molecules** are allowed to be in a page when the page is small enough to use a **pagelet**. Pages are the most recommended component which connects to the **store**.
 
-## Store
+### Store
 
-This starter kit uses [Redux](http://redux.js.org/) as a state management, and every state in the **store** uses [immutable data structure](https://facebook.github.io/immutable-js/) as a normalized object using [Normalizr](https://github.com/paularmstrong/normalizr).
+Reena uses [Redux](http://redux.js.org/) as a state management, and every state in the **store** uses [immutable data structure](https://facebook.github.io/immutable-js/) as a normalized object using [Normalizr](https://github.com/paularmstrong/normalizr). It is recommended to use Immutable records.
+
+### Styling
+
+Reena uses [Glamorous](http://glamorous.rocks/) for styling on atomic components, but you can easily remove it and replace it with any styling libraries or just stack it with any custom styles.
+
+It is advised to always make any components (especially **Atoms** and **Molecules**) have stackable styling. You can always update **Atom** component's global style in **neutrons**.
+
+## Getting Started
+
+```
+git clone https://github.com/adhywiranata/reena.git
+cd reena
+yarn install
+react-native run-ios
+```
+
+## Debugging
+
+For MacOS debugging, [React Native Debugger](https://github.com/jhen0409/react-native-debugger) is a good choice on top of the default debugging since it supports Redux integration.
+
+## Credits
+
+Reena's component structure uses the awesome Brad Frost's [Atomic Design Principle](http://bradfrost.com/blog/post/atomic-web-design/) for React components structure.
