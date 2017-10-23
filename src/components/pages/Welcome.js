@@ -10,6 +10,9 @@ import {
 import {
   ContainerMolecule,
 } from 'reena/src/components/molecules';
+import {
+  sampleHelper,
+} from 'reena/src/utilities/helpers';
 
 class WelcomePage extends React.Component {
   static navigationOptions = {
@@ -35,6 +38,7 @@ class WelcomePage extends React.Component {
       <ContainerMolecule>
         <TextAtom>{this.state.title}</TextAtom>
         <TextAtom>{JSON.stringify(this.props)}</TextAtom>
+        <TextAtom>{sampleHelper.toCapital('john doe')}</TextAtom>
       </ContainerMolecule>
     );
   }
