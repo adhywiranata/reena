@@ -9,6 +9,7 @@
     "dev:ios": "react-native run-ios"
   },
   "dependencies": {
+    "lodash": "^4.17.4",
     "react": "16.0.0-beta.5",
     "react-native": "0.49.3",
     "react-native-config": "^0.9.0",

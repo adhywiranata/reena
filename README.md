@@ -69,9 +69,9 @@ react-native run-ios
 
 When adding third party components, it is recommended to put them as an **Atom**.
 
-## Feature Checklist
+## Feature Roadmap
 
-### Features
+### Third Party Integration
 
 - [ ] Redux State Management
 - [ ] ImmutableJS
@@ -85,6 +85,14 @@ When adding third party components, it is recommended to put them as an **Atom**
 - [x] Network connectivity HOC
 - [x] Redux Connect Wrapper HOC
 - [ ] GraphQL Connect Wrapper HOC
+
+### Featured Components
+
+- [ ] Activity Indicator Atom
+- [ ] Keyboard Avoiding View Atom
+- [ ] Lazy Loading Image Atom
+- [ ] Picker Atom
+- [ ] Error Boundary Molecule
 
 ## Debugging
 
