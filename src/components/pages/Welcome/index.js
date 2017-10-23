@@ -14,6 +14,8 @@ import {
   sampleHelper,
 } from 'reena/src/utilities/helpers';
 
+import Styles from './styles';
+
 class WelcomePage extends React.Component {
   static navigationOptions = {
     header: null,
@@ -29,16 +31,16 @@ class WelcomePage extends React.Component {
     super(p, c);
 
     this.state = {
-      title: 'Welcome to Reena',
+      title: 'REE.NA',
     };
   }
 
   render() {
     return (
-      <ContainerMolecule>
-        <TextAtom>{this.state.title}</TextAtom>
-        <TextAtom>{JSON.stringify(this.props)}</TextAtom>
-        <TextAtom>{sampleHelper.toCapital('john doe')}</TextAtom>
+      <ContainerMolecule style={Styles.container}>
+        <TextAtom style={Styles.logo}>
+          {this.state.title}
+        </TextAtom>
       </ContainerMolecule>
     );
   }
