@@ -1,14 +1,13 @@
 import React from 'react';
 import { NetInfo } from 'react-native';
 
-const networkAware = Component => (
-  class WrappedComponent extends React.Component {
+const networkAware = (WrappedComponent) => {
+  class EnhancedComponent extends React.Component {
     constructor() {
       super();
       this.state = {
         isOnline: false,
         type: null,
-        effectiveType: null,
       };
 
       this._onConnectivityChange = this._onConnectivityChange.bind(this);
@@ -32,14 +31,17 @@ const networkAware = Component => (
       this.setState({
         isOnline: connectionInfo.type !== 'none',
         type: connectionInfo.type,
-        effectiveType: connectionInfo.effectiveType,
       });
     }
 
     render() {
-      return <Component {...this.props} networkStatus={this.state} />;
+      return <WrappedComponent {...this.props} networkStatus={{ ...this.state }} />;
     }
   }
-);
+
+  EnhancedComponent.navigationOptions = WrappedComponent.navigationOptions;
+
+  return EnhancedComponent;
+};
 
 export default networkAware;

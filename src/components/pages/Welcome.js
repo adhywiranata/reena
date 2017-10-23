@@ -12,6 +12,10 @@ import {
 } from 'reena/src/components/molecules';
 
 class WelcomePage extends React.Component {
+  static navigationOptions = {
+    header: null,
+  }
+  
   static mapStateToProps(state) {
     return {
       test: state,
