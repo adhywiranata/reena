@@ -1,10 +1,13 @@
 export default {
+  padZero: (num) => {
+    return ('0' + num).slice(-2);
+  },
   formatCurrency: (currency) => {
     return Number(currency).toLocaleString();
   },
-  formatDate: (date) => {
+  formatDate: function(date){
     const myDate = new Date(date);
-    const myDateString = `${padZero(myDate.getDate())}-${padZero(myDate.getMonth()+1)}-${myDate.getFullYear()}`;
+    const myDateString = `${this.padZero(myDate.getDate())}-${this.padZero(myDate.getMonth()+1)}-${myDate.getFullYear()}`;
     return myDateString;
   },
 };
