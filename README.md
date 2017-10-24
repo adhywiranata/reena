@@ -92,7 +92,15 @@ When adding third party components, it is recommended to put them as an **Atom**
 - [ ] Keyboard Avoiding View Atom
 - [ ] Lazy Loading Image Atom
 - [ ] Picker Atom
+- [ ] Gradient View Atom
 - [ ] Error Boundary Molecule
+
+### Social Login
+
+- [ ] Facebook
+- [ ] Twitter
+- [ ] LinkedIn
+- [ ] Github
 
 ## Debugging
 
