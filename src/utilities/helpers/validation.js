@@ -1,7 +1,7 @@
 export default {
   isValidEmail: (email) => {
   // First check if any value was actually set
-    if (email.length === 0) return false;
+    if (!email || email.length === 0) return false;
     // Now validate the email format using Regex
     return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/.test(email);
   },
