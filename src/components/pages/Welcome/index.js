@@ -9,6 +9,7 @@ import {
 } from 'reena/src/components/atoms';
 import {
   ContainerMolecule,
+  ButtonMolecule,
 } from 'reena/src/components/molecules';
 import {
   sampleHelper,
@@ -41,6 +42,12 @@ class WelcomePage extends React.Component {
         <TextAtom style={Styles.logo}>
           {this.state.title}
         </TextAtom>
+        <ButtonMolecule
+          style={{ borderRadius: 5, marginVertical: 20 }}
+          textStyle={{ fontWeight: '200', fontSize: 14 }}
+        >
+          View Examples
+        </ButtonMolecule>
       </ContainerMolecule>
     );
   }
