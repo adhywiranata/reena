@@ -1,11 +1,15 @@
 {
-    "extends": "airbnb",
-    "settings": {
-      "import/resolver": "reactnative"
-    },
-    "rules": {
-      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-      "no-named-as-default": "off",
-      "no-underscore-dangle": "off"
-    }
+  "extends": "airbnb",
+  "settings": {
+    "import/resolver": "reactnative"
+  },
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "no-named-as-default": "off",
+    "no-underscore-dangle": "off"
+  },
+  "globals": {
+    "test": true,
+    "expect" : true
+  }
 }
