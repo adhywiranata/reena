@@ -4,7 +4,7 @@ export default {
   },
   formatDate: (date) => {
     const myDate = new Date(date);
-    const myDateString = `${padZero(myDate.getDate())}-${padZero(myDate.getMonth()+1))}-${myDate.getFullYear()}`;
+    const myDateString = `${padZero(myDate.getDate())}-${padZero(myDate.getMonth()+1)}-${myDate.getFullYear()}`;
     return myDateString;
   },
 };
