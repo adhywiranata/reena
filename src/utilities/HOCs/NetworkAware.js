@@ -1,5 +1,6 @@
 import React from 'react';
 import { NetInfo } from 'react-native';
+import hoistNonReactStatic from 'hoist-non-react-statics';
 
 const networkAware = (WrappedComponent) => {
   class EnhancedComponent extends React.Component {
@@ -39,7 +40,7 @@ const networkAware = (WrappedComponent) => {
     }
   }
 
-  EnhancedComponent.navigationOptions = WrappedComponent.navigationOptions;
+  hoistNonReactStatic(EnhancedComponent, WrappedComponent);
 
   return EnhancedComponent;
 };
