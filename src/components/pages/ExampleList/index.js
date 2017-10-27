@@ -2,7 +2,6 @@ import React from 'react';
 
 import {
   connectHOC,
-  networkAwareHOC,
 } from 'reena/src/utilities/HOCs';
 import {
   TextAtom,
@@ -65,4 +64,4 @@ class ExampleListPage extends React.Component {
   }
 }
 
-export default networkAwareHOC(connectHOC(ExampleListPage));
+export default connectHOC(ExampleListPage);

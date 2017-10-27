@@ -1,7 +1,7 @@
 import connect from './connect';
-import networkAware from './networkAware';
+import withNetworkStatus from './withNetworkStatus';
 
 export {
   connect as connectHOC,
-  networkAware as networkAwareHOC,
+  withNetworkStatus as withNetworkStatusHOC,
 };

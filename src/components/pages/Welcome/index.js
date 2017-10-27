@@ -2,7 +2,7 @@ import React from 'react';
 
 import {
   connectHOC,
-  networkAwareHOC,
+  withNetworkStatusHOC,
 } from 'reena/src/utilities/HOCs';
 import {
   TextAtom,
@@ -49,9 +49,10 @@ class WelcomePage extends React.Component {
         >
           View Usage Examples
         </ButtonMolecule>
+        <TextAtom>{JSON.stringify(this.props.networkStatus)}</TextAtom>
       </ContainerMolecule>
     );
   }
 }
 
-export default networkAwareHOC(connectHOC(WelcomePage));
+export default withNetworkStatusHOC(connectHOC(WelcomePage));

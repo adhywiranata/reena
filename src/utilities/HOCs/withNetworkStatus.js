@@ -2,7 +2,7 @@ import React from 'react';
 import { NetInfo } from 'react-native';
 import hoistNonReactStatic from 'hoist-non-react-statics';
 
-const networkAware = (WrappedComponent) => {
+const withNetworkStatus = (WrappedComponent) => {
   class EnhancedComponent extends React.Component {
     constructor() {
       super();
@@ -45,4 +45,4 @@ const networkAware = (WrappedComponent) => {
   return EnhancedComponent;
 };
 
-export default networkAware;
+export default withNetworkStatus;
