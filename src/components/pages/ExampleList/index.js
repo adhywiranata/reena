@@ -14,12 +14,30 @@ import {
 import {
   sampleHelper,
 } from 'reena/src/utilities/helpers';
+import { COLORS } from 'reena/src/constants';
 
 import Styles from './styles';
 
-class WelcomePage extends React.Component {
-  static navigationOptions = {
-    header: null,
+class ExampleListPage extends React.Component {
+  static navigationOptions = ({ navigation }) => { 
+    const { goBack } = navigation;
+    return {
+      // headerLeft: ({ goBack }) => ({
+      //   left: null,
+      // }),
+      headerLeft: (
+        <ButtonMolecule
+          textStyle={Styles.backButtonLabel}
+          onPress={() => goBack()}
+        >
+          BACK
+        </ButtonMolecule>
+      ),
+      headerStyle: {
+        backgroundColor: COLORS.grey.lynch,
+        borderBottomWidth: 0,
+      },
+    }
   }
   
   static mapStateToProps(state) {
@@ -42,16 +60,9 @@ class WelcomePage extends React.Component {
         <TextAtom style={Styles.logo}>
           {this.state.title}
         </TextAtom>
-        <ButtonMolecule
-          onPress={this.props.navigation.navigate.bind(this, 'Examples')}
-          style={{ borderRadius: 5, marginVertical: 20 }}
-          textStyle={{ fontWeight: '300', fontSize: 14 }}
-        >
-          View Usage Examples
-        </ButtonMolecule>
       </ContainerMolecule>
     );
   }
 }
 
-export default networkAwareHOC(connectHOC(WelcomePage));
+export default networkAwareHOC(connectHOC(ExampleListPage));
