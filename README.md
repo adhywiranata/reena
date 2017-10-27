@@ -108,4 +108,4 @@ For MacOS debugging, [React Native Debugger](https://github.com/jhen0409/react-n
 
 ## Credits
 
-Reena's component structure uses the awesome Brad Frost's [Atomic Design Principle](http://bradfrost.com/blog/post/atomic-web-design/) for React components structure.
+Reena's component structure uses the awesome Brad Frost's [Atomic Design Principle](http://bradfrost.com/blog/post/atomic-web-design/) for React components structure. 
