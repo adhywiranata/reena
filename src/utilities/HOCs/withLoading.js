@@ -24,7 +24,7 @@ const withLoading = (WrappedComponent, LoadingComponent = null) => {
     }
   }
 
-  hoistNonReactStatic(EnhancedComponent, WrappedComponent)
+  hoistNonReactStatic(EnhancedComponent, WrappedComponent);
 
   return EnhancedComponent;
 };
