@@ -63,7 +63,7 @@ react-native run-ios
 
 ### Changing App's Name
 
-:sparkles: *COMING SOON*
+Spencer Carli's [awesome medium post](https://medium.com/the-react-native-log/how-to-rename-a-react-native-app-dafd92161c35) on how to change React Native's app name.
 
 ### Adding Third Party Components
 
@@ -108,4 +108,4 @@ For MacOS debugging, [React Native Debugger](https://github.com/jhen0409/react-n
 
 ## Credits
 
-Reena's component structure uses the awesome Brad Frost's [Atomic Design Principle](http://bradfrost.com/blog/post/atomic-web-design/) for React components structure. 
+Reena's component structure uses the awesome Brad Frost's [Atomic Design Principle](http://bradfrost.com/blog/post/atomic-web-design/) for React components structure.
