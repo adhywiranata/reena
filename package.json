@@ -36,7 +36,8 @@
     "flow-bin": "^0.57.3",
     "istanbul": "^0.4.5",
     "jest": "21.2.1",
-    "react-test-renderer": "16.0.0-beta.5"
+    "react-test-renderer": "16.0.0-beta.5",
+    "reactotron-react-native": "^1.12.3"
   },
   "jest": {
     "preset": "react-native"

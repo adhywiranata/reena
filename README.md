@@ -106,7 +106,7 @@ When adding third party components, it is recommended to put them as an **Atom**
 
 ## Debugging
 
-For MacOS debugging, [React Native Debugger](https://github.com/jhen0409/react-native-debugger) is a good choice on top of the default debugging since it supports Redux integration.
+For debugging and inspecting, Reena uses [Reactotron](https://github.com/infinitered/reactotron). It is a configurable React and Redux inspector. The Reactotron config is provided.
 
 ## Credits
 
