@@ -106,7 +106,20 @@ When adding third party components, it is recommended to put them as an **Atom**
 
 ## Debugging
 
-For debugging and inspecting, Reena uses [Reactotron](https://github.com/infinitered/reactotron). It is a configurable React and Redux inspector. The Reactotron config is provided.
+For debugging and inspecting, Reena uses [Reactotron](https://github.com/infinitered/reactotron). It is a configurable React and Redux inspector. The Reactotron config is provided. Please refer to Reactotron's documentation to use it.
+
+## Configuration and Environment Variables
+
+Reena uses [React Native Config](https://github.com/luggit/react-native-config) to obtain environment variables in a .env file. Please copy and then rename .env.example to .env to see it working.
+
+To import the variables:
+
+```javaScript
+import Config from 'react-native-config'
+
+Config.API_KEY
+...
+```
 
 ## Credits
 
