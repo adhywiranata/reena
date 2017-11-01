@@ -84,6 +84,8 @@ When adding third party components, it is recommended to put them as an **Atom**
 
 - [x] Network connectivity HOC
 - [x] Redux Connect Wrapper HOC
+- [x] Loading HOC
+- [ ] Dismiss Keyboard HOC
 - [ ] GraphQL Connect Wrapper HOC
 
 ### Featured Components
