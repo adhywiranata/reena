@@ -2,6 +2,7 @@ import React from 'react';
 
 import {
   connectHOC,
+  withLoadingHOC,
   withNetworkStatusHOC,
 } from 'reena/src/utilities/HOCs';
 import {
@@ -16,6 +17,12 @@ import {
 } from 'reena/src/utilities/helpers';
 
 import Styles from './styles';
+import { getMessageSelector } from 'reena/src/redux/reducers/sampleReducer';
+
+const RealComp = withLoadingHOC(() => (
+  <TextAtom>SMTH...</TextAtom>
+));
+
 
 class WelcomePage extends React.Component {
   static navigationOptions = {
@@ -24,7 +31,7 @@ class WelcomePage extends React.Component {
   
   static mapStateToProps(state) {
     return {
-      test: state,
+      sample: getMessageSelector(state.sample),
     };
   }
 
@@ -49,7 +56,8 @@ class WelcomePage extends React.Component {
         >
           View Usage Examples
         </ButtonMolecule>
-        <TextAtom>{JSON.stringify(this.props.networkStatus)}</TextAtom>
+        <TextAtom>{JSON.stringify(this.props)}</TextAtom>
+        <RealComp isLoading />
       </ContainerMolecule>
     );
   }
