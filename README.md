@@ -1,4 +1,5 @@
-# Reena
+# Ree.na
+
 > :sparkles: React Native Starter Kit
 
 Reena is a React Native Starter Kit with opinionated component structures and state management.
@@ -40,9 +41,11 @@ Reena adopts the [Atomic Design Principle](http://bradfrost.com/blog/post/atomic
 
   A **Page** is an outermost component, which consists of **Pagelets**, **Organisms**, or **Molecules**. Both **Organisms** and **Molecules** are allowed to be in a **Page** that is small enough, you don't need to use **Pagelets**. It is recommended to connect **Pages** to the **Store** instead of connecting each or several of its components.
 
-### Store
+### State Management
 
 Reena uses [Redux](http://redux.js.org/) for state management, and every state in the **store** uses [immutable data structure](https://facebook.github.io/immutable-js/) as a normalized object using [Normalizr](https://github.com/paularmstrong/normalizr). It is recommended to use Immutable records.
+
+Reena follows [Ducks Modular Redux Pattern Proposal](https://github.com/erikras/ducks-modular-redux) to group redux-related files into each modules, rather than separating them into Reducers, Actions, Sagas, etc.
 
 ### Styling
 
