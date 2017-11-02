@@ -1,16 +1,14 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
+import {
+  fetchExampleNews,
+} from 'reena/src/services/apis';
 
 import {
   fetchExampleNewsLoading,
   fetchExampleNewsSuccess,
   fetchExampleNewsFailure,
-} from 'reena/src/redux/actions/exampleActions';
-
-import {
-  fetchExampleNews,
-} from 'reena/src/services/apis';
-
-import { FETCH_EXAMPLE_NEWS } from 'reena/src/redux/actions/constants';
+} from './actions';
+import { FETCH_EXAMPLE_NEWS } from './constants';
 
 export function* fetchExampleNewsSaga() {
   yield put(fetchExampleNewsLoading());

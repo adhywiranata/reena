@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 
-import sampleReducer from './exampleReducer';
-import exampleNewsReducer from './exampleNewsReducer';
+// import sampleReducer from './modules/news/exampleReducer';
+import exampleNewsReducer from './modules/exampleNews/reducer';
 
 // list down each reducers below to combine them into the single redux store
 export default combineReducers({
-  sample: sampleReducer,
+  sample: exampleNewsReducer,
   exampleNews: exampleNewsReducer,
 });

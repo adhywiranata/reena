@@ -2,7 +2,7 @@ import {
   FETCH_EXAMPLE_NEWS_LOADING,
   FETCH_EXAMPLE_NEWS_SUCCESS,
   FETCH_EXAMPLE_NEWS_FAILURE,
-} from '../actions/constants';
+} from './constants';
 
 // Place initial state here
 const initialState = {
@@ -39,7 +39,3 @@ export default (state = initialState, { type, payload }) => {
     default: return state;
   }
 };
-
-// Place selectors here
-export const getNewsTitlesSelector = state => state.data.map(d => d.title);
-export const getNewsLoadingStatusSelector = state => state.isLoading;

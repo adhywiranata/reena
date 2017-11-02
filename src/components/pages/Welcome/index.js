@@ -17,8 +17,10 @@ import {
 } from 'reena/src/utilities/helpers';
 
 import Styles from './styles';
-import { getMessageSelector } from 'reena/src/redux/reducers/exampleReducer';
-import { getNewsTitlesSelector, getNewsLoadingStatusSelector } from 'reena/src/redux/reducers/exampleNewsReducer';
+import {
+  getNewsTitlesSelector,
+  getNewsLoadingStatusSelector,
+} from 'reena/src/model/modules/exampleNews/selectors';
 
 const RealComp = withLoadingHOC(() => (
   <TextAtom>SMTH...</TextAtom>
@@ -32,7 +34,6 @@ class WelcomePage extends React.Component {
   
   static mapStateToProps(state) {
     return {
-      sample: getMessageSelector(state.sample),
       exampleNews: getNewsTitlesSelector(state.exampleNews),
       isLoading: getNewsLoadingStatusSelector(state.exampleNews),
     };
