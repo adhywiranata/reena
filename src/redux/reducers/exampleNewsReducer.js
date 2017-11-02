@@ -6,7 +6,7 @@ import {
 
 // Place initial state here
 const initialState = {
-  data: {},
+  data: [],
   isLoading: false,
   isError: false,
   errorMessage: null,
@@ -14,12 +14,17 @@ const initialState = {
 
 // Place additonal reducer logics here
 const startLoading = oldState => ({ ...oldState, isLoading: true });
-const setDataOnSuccess = (oldState, payload) => ({ ...oldState, isLoading: false, data: payload.hits });
+const setDataOnSuccess = (oldState, payload) => (
+  {
+    ...oldState,
+    isLoading: false,
+    data: payload.hits,
+  }
+);
 const setDataOnFailure = (oldState, payload) => (
   {
     ...oldState,
     isLoading: false,
-    data: {},
     isError: true,
     errorMessage: payload,
   }
@@ -36,4 +41,5 @@ export default (state = initialState, { type, payload }) => {
 };
 
 // Place selectors here
-// export const getMessageSelector = state => state.message;
+export const getNewsTitlesSelector = state => state.data.map(d => d.title);
+export const getNewsLoadingStatusSelector = state => state.isLoading;
