@@ -17,7 +17,7 @@ import {
 } from 'reena/src/utilities/helpers';
 
 import Styles from './styles';
-import { getMessageSelector } from 'reena/src/redux/reducers/sampleReducer';
+import { getMessageSelector } from 'reena/src/redux/reducers/exampleReducer';
 
 const RealComp = withLoadingHOC(() => (
   <TextAtom>SMTH...</TextAtom>
@@ -32,6 +32,13 @@ class WelcomePage extends React.Component {
   static mapStateToProps(state) {
     return {
       sample: getMessageSelector(state.sample),
+      exampleNews: state.exampleNews,
+    };
+  }
+
+  static mapDispatchToProps(dispatch) {
+    return {
+      fetchExampleNews: () => dispatch({ type: 'FETCH_EXAMPLE_NEWS' }),
     };
   }
 
@@ -41,6 +48,10 @@ class WelcomePage extends React.Component {
     this.state = {
       title: 'REE.NA',
     };
+  }
+
+  componentDidMount() {
+    this.props.fetchExampleNews();
   }
 
   render() {
