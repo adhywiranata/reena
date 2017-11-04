@@ -90,6 +90,7 @@ When adding third party components, it is recommended to put them as an **Atom**
 - [x] Loading HOC
 - [ ] Dismiss Keyboard HOC
 - [ ] GraphQL Connect Wrapper HOC
+- [x] Error Boundary HOC
 
 ### Featured Components
 
@@ -98,7 +99,27 @@ When adding third party components, it is recommended to put them as an **Atom**
 - [ ] Lazy Loading Image Atom
 - [ ] Picker Atom
 - [ ] Gradient View Atom
-- [ ] Error Boundary Molecule
+- [ ] Modal Picker Atom
+- [ ] Android Toast Atom
+- [ ] Android Snackbar Atom
+- [ ] Android Slider Atom
+- [ ] Native Android Ripple Button Atom
+- [ ] FlatList with Infinite Scrolling Atom
+
+- [ ] Date Picker Molecule (Android + iOS)
+- [ ] Collapsible Molecule
+- [ ] Tooltip Molecule
+- [ ] Android Menu Molecule. [Guideline](https://material.io/guidelines/components/menus.html)
+- [ ] Android Dialog Menu Molecule. [Guideline](https://material.io/guidelines/components/dialogs.html#dialogs-simple-menus)
+- [ ] Display on Scroll Down Bottom Tab Molecule
+- [ ] Youtube Video Player Molecule
+
+- [ ] Bottom Sheets Organism
+- [ ] Image Carousel Organism
+- [ ] Parallax Background Organism
+- [ ] Stepper Organism
+
+- [ ] Modal Navigation
 
 ### Social Login
 
@@ -106,6 +127,12 @@ When adding third party components, it is recommended to put them as an **Atom**
 - [ ] Twitter
 - [ ] LinkedIn
 - [ ] Github
+
+## Examples
+
+- [x] Basic Redux Connected Page
+- [ ] Basic Tipical Form Page
+- [ ] Basic Async Storage Usage Page
 
 ## Debugging
 
