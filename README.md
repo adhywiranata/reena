@@ -82,6 +82,8 @@ When adding third party components, it is recommended to put them as an **Atom**
 - [ ] CodePush
 - [ ] Crashlitics
 - [ ] Recompose
+- [ ] Fastlane
+- [ ] Testfairy
 
 ### Higher Order Components
 
@@ -108,8 +110,8 @@ When adding third party components, it is recommended to put them as an **Atom**
 - [ ] Date Picker Molecule (Android + iOS)
 - [ ] Collapsible Molecule
 - [ ] Tooltip Molecule
-- [ ] Android Menu Molecule. [Guideline](https://material.io/guidelines/components/menus.html)
-- [ ] Android Dialog Menu Molecule. [Guideline](https://material.io/guidelines/components/dialogs.html#dialogs-simple-menus)
+- [ ] Android Menu Molecule. [[Guideline](https://material.io/guidelines/components/menus.html)]
+- [ ] Android Dialog Menu Molecule [[Guideline](https://material.io/guidelines/components/dialogs.html#dialogs-simple-menus)]
 - [ ] Display on Scroll Down Bottom Tab Molecule
 - [ ] Youtube Video Player Molecule
 - [ ] Bottom Sheets Organism
