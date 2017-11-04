@@ -13,6 +13,10 @@ import {
   ButtonMolecule,
 } from 'reena/src/components/molecules';
 import {
+  BottomSheetPagelet,
+  ScreenOverlayPagelet,
+} from 'reena/src/components/pagelets';
+import {
   sampleHelper,
 } from 'reena/src/utilities/helpers';
 
@@ -50,6 +54,7 @@ class WelcomePage extends React.Component {
 
     this.state = {
       title: 'REE.NA',
+      isModalVisible: false,
     };
   }
 
@@ -72,6 +77,15 @@ class WelcomePage extends React.Component {
         </ButtonMolecule>
         <TextAtom>{JSON.stringify(this.props)}</TextAtom>
         <RealComp isLoading />
+        <ButtonMolecule
+          onPress={() => this.setState({ isModalVisible: true })}
+          style={{ borderRadius: 5, marginVertical: 20 }}
+          textStyle={{ fontWeight: '300', fontSize: 14 }}
+        >
+          Show Modal
+        </ButtonMolecule>
+        { this.state.isModalVisible && <ScreenOverlayPagelet onPress={() => this.setState({ isModalVisible: false })} /> }
+        { this.state.isModalVisible && <BottomSheetPagelet /> }
       </ContainerMolecule>
     );
   }
