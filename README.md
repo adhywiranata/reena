@@ -105,7 +105,6 @@ When adding third party components, it is recommended to put them as an **Atom**
 - [ ] Android Slider Atom
 - [ ] Native Android Ripple Button Atom
 - [ ] FlatList with Infinite Scrolling Atom
-
 - [ ] Date Picker Molecule (Android + iOS)
 - [ ] Collapsible Molecule
 - [ ] Tooltip Molecule
@@ -113,12 +112,10 @@ When adding third party components, it is recommended to put them as an **Atom**
 - [ ] Android Dialog Menu Molecule. [Guideline](https://material.io/guidelines/components/dialogs.html#dialogs-simple-menus)
 - [ ] Display on Scroll Down Bottom Tab Molecule
 - [ ] Youtube Video Player Molecule
-
 - [ ] Bottom Sheets Organism
 - [ ] Image Carousel Organism
 - [ ] Parallax Background Organism
 - [ ] Stepper Organism
-
 - [ ] Modal Navigation
 
 ### Social Login
