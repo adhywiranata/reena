@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated } from 'react-native';
+import { Animated, Dimensions } from 'react-native';
 
 import {
   TouchableAtom,
@@ -38,7 +38,7 @@ export default class ScreenOverlay extends React.Component {
       Animated.timing(
         this.state.height,
         {
-          toValue: isVisible ? 500 : 0,
+          toValue: isVisible ? Dimensions.get('window').height : 0,
           duration: 1,
         },
       ),
@@ -48,7 +48,7 @@ export default class ScreenOverlay extends React.Component {
   render() {
     const { opacity, height } = this.state;
     return (
-      <Animated.View style={[Styles.container, { opacity, height }]}>
+      <Animated.View style={[Styles.container, this.props.style, { opacity, height }]}>
         <TouchableAtom
           style={Styles.touchable}
           activeOpacity={1}

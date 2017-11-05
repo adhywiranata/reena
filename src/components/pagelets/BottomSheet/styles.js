@@ -3,9 +3,8 @@ import { COLORS } from 'reena/src/constants';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
     width: '100%',
-    height: 250,
+    height: 200,
     backgroundColor: COLORS.white,
     alignItems: 'center',
     justifyContent: 'center',

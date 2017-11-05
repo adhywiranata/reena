@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated } from 'react-native';
+import { Animated, Dimensions } from 'react-native';
 
 import Styles from './styles';
 
@@ -25,15 +25,24 @@ export default class BottomSheet extends React.Component {
     Animated.spring(
       this.state.bottom,
       {
-        toValue: isVisible ? -50 : -500,
-        duration: 200,
+        toValue: isVisible ? -50 : -(Dimensions.get('window').height),
+        bounciness: 8,
       },
     ).start();
   }
 
   render() {
     return (
-      <Animated.View style={[Styles.container, this.props.style, { bottom: this.state.bottom }]}>
+      <Animated.View style={[
+          Styles.container,
+          {
+            ...this.props.style,
+            // add additional height to avoid bouncing empty space
+            paddingBottom: this.props.style.paddingBottom ? this.props.style.paddingBottom + 50 : 50,
+          },
+          { bottom: this.state.bottom },
+        ]}
+      >
         {this.props.children}
       </Animated.View>
     );

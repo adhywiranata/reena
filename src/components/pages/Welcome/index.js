@@ -31,7 +31,7 @@ const RealComp = withLoadingHOC(() => (
   <TextAtom>SMTH...</TextAtom>
 ));
 
-const TestComp = props => <TextAtom>{props.message}</TextAtom>;
+const TestComp = props => <TextAtom style={{ backgroundColor: 'teal' }}>{props.message}</TextAtom>;
 
 class WelcomePage extends React.Component {
   static navigationOptions = {
@@ -82,7 +82,8 @@ class WelcomePage extends React.Component {
         <ButtonMolecule
           onPress={() => this.props.onToggleBottomSheet({
             render: () => <TestComp message={'this is a bottom sheet inside!!!'} />,
-            containerStyle: { backgroundColor: 'white', alignItems: 'flex-start' },
+            overlayStyle: { backgroundColor: 'rgba(0, 200, 30, 0.5)', },
+            bottomMenuContainerStyle: { backgroundColor: 'white', height: 200 },
           })}
           style={{ borderRadius: 5, marginVertical: 20 }}
           textStyle={{ fontWeight: '300', fontSize: 14 }}
