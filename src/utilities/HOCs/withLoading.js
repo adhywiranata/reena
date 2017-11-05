@@ -2,23 +2,19 @@ import React from 'react';
 import { TextAtom } from 'reena/src/components/atoms';
 import hoistNonReactStatic from 'hoist-non-react-statics';
 
-const withLoading = (WrappedComponent, LoadingComponent = null) => {
+const withLoading = (WrappedComponent) => {
   class EnhancedComponent extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        isLoading: props.isLoading || false,
+        renderLoadingComponent: () => <TextAtom>Loading...</TextAtom>,
       };
     }
 
     render() {
-      const { isLoading } = this.state;
+      const { isLoading } = this.props;
       if (isLoading) {
-        return LoadingComponent !== null ? (
-          <LoadingComponent />
-        ) : (
-          <TextAtom>Loading...</TextAtom>
-        );
+        return this.state.renderLoadingComponent();
       }
       return <WrappedComponent {...this.props} />;
     }

@@ -29,7 +29,7 @@ import {
 } from 'reena/src/model/modules/exampleNews/selectors';
 
 const RealComp = withLoadingHOC(() => (
-  <TextAtom>SMTH...</TextAtom>
+  <TextAtom>I should be ready after loading!</TextAtom>
 ));
 
 const TestComp = props => <TextAtom>{props.message}</TextAtom>;
