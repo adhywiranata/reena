@@ -76,7 +76,7 @@ When adding third party components, it is recommended to put them as an **Atom**
 
 ### Third Party Integration
 
-- [ ] Redux State Management
+- [x] Redux State Management
 - [ ] ImmutableJS
 - [ ] Flow static type checker
 - [ ] CodePush
@@ -91,7 +91,7 @@ When adding third party components, it is recommended to put them as an **Atom**
 - [x] Redux Connect Wrapper HOC
 - [x] Loading HOC
 - [ ] Dismiss Keyboard HOC
-- [ ] GraphQL Connect Wrapper HOC
+- [x] GraphQL Connect Wrapper HOC
 - [x] Error Boundary HOC
 
 ### Featured Components
@@ -114,10 +114,11 @@ When adding third party components, it is recommended to put them as an **Atom**
 - [ ] Android Dialog Menu Molecule [[Guideline](https://material.io/guidelines/components/dialogs.html#dialogs-simple-menus)]
 - [ ] Display on Scroll Down Bottom Tab Molecule
 - [ ] Youtube Video Player Molecule
-- [ ] Bottom Sheets Organism
 - [ ] Image Carousel Organism
 - [ ] Parallax Background Organism
 - [ ] Stepper Organism
+- [x] Bottom Sheets Pagelet
+- [x] Modal Pagelet
 - [ ] Modal Navigation
 
 ### Social Login
