@@ -13,7 +13,7 @@ const withBottomSheet = (WrappedComponent) => {
       super(props);
       this.state = {
         isBottomSheetVisible: false,
-        bottomComponent: () => <TextAtom>blah</TextAtom>,
+        bottomComponent: () => null,
         overlayStyle: {},
         bottomMenuContainerStyle: {},
       };
