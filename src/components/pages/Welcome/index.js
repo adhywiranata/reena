@@ -2,6 +2,7 @@ import React from 'react';
 
 import {
   connectHOC,
+  withBottomSheetHOC,
   withLoadingHOC,
   withNetworkStatusHOC,
 } from 'reena/src/utilities/HOCs';
@@ -54,7 +55,7 @@ class WelcomePage extends React.Component {
 
     this.state = {
       title: 'REE.NA',
-      isModalVisible: false,
+      // isModalVisible: false,
     };
   }
 
@@ -78,17 +79,17 @@ class WelcomePage extends React.Component {
         <TextAtom>{JSON.stringify(this.props)}</TextAtom>
         <RealComp isLoading />
         <ButtonMolecule
-          onPress={() => this.setState({ isModalVisible: true })}
+          onPress={() => this.props.onToggleBottomSheet()}
           style={{ borderRadius: 5, marginVertical: 20 }}
           textStyle={{ fontWeight: '300', fontSize: 14 }}
         >
           Show Modal
         </ButtonMolecule>
-        { this.state.isModalVisible && <ScreenOverlayPagelet onPress={() => this.setState({ isModalVisible: false })} /> }
-        { this.state.isModalVisible && <BottomSheetPagelet /> }
+        {/* <ScreenOverlayPagelet onPress={() => this.setState({ isModalVisible: false })} /> */}
+        {/* <BottomSheetPagelet /> */}
       </ContainerMolecule>
     );
   }
 }
 
-export default withNetworkStatusHOC(connectHOC(WelcomePage));
+export default withBottomSheetHOC(withNetworkStatusHOC(connectHOC(WelcomePage)));

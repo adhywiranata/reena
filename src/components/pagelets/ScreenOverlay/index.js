@@ -3,52 +3,58 @@ import { Animated } from 'react-native';
 
 import {
   TouchableAtom,
-  TextAtom,
 } from 'reena/src/components/atoms';
 
 import Styles from './styles';
 
 export default class ScreenOverlay extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      isVisible: false,
       opacity: new Animated.Value(0),
+      height: new Animated.Value(0),
     };
 
     this._toggleOverlay = this._toggleOverlay.bind(this);
   }
 
   componentDidMount() {
-    this._toggleOverlay();
-    // setTimeout(this._toggleOverlay, 3000);
+    this._toggleOverlay(false);
   }
 
-  _toggleOverlay() {
-    const { isVisible } = this.state;
-    Animated.timing(
-      this.state.opacity,
-      {
-        toValue: isVisible ? 0 : 1,
-        duration: 500,
-      },
-    ).start();
-    const screenDelay = isVisible ? 200 : 0;
-    setTimeout(this.setState.bind(this, { isVisible: !isVisible }), screenDelay);
+  componentWillReceiveProps(np) {
+    this._toggleOverlay(np.isVisible);
+  }
+
+  _toggleOverlay(isVisible) {
+    Animated.parallel([
+      Animated.timing(
+        this.state.opacity,
+        {
+          toValue: isVisible ? 1 : 0,
+          duration: 500,
+        },
+      ),
+      Animated.timing(
+        this.state.height,
+        {
+          toValue: isVisible ? 500 : 0,
+          duration: 1,
+        },
+      ),
+    ]).start();
   }
 
   render() {
+    const { opacity, height } = this.state;
     return (
-      this.state.isVisible ?
-        <Animated.View style={[Styles.container, { opacity: this.state.opacity }]}>
-          <TouchableAtom
-            style={Styles.touchable}
-            activeOpacity={1}
-            onPress={this.props.onPress ? this.props.onPress : () => {}}
-          />
-        </Animated.View>
-        :
-        null
+      <Animated.View style={[Styles.container, { opacity, height }]}>
+        <TouchableAtom
+          style={Styles.touchable}
+          activeOpacity={1}
+          onPress={this.props.onPress ? this.props.onPress : () => {}}
+        />
+      </Animated.View>
     );
   }
 }

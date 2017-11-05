@@ -1,17 +1,12 @@
 import React from 'react';
 import { Animated } from 'react-native';
 
-import {
-  ViewAtom,
-} from 'reena/src/components/atoms';
-
 import Styles from './styles';
 
 export default class BottomSheet extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      isVisible: false,
       bottom: new Animated.Value(-500),
     };
 
@@ -19,28 +14,26 @@ export default class BottomSheet extends React.Component {
   }
 
   componentDidMount() {
-    this._toggleSheet();
-    // setTimeout(this._toggleOverlay, 3000);
+    this._toggleSheet(false);
   }
 
-  _toggleSheet() {
-    const { isVisible } = this.state;
-    Animated.timing(
+  componentWillReceiveProps(nP) {
+    this._toggleSheet(nP.isVisible);
+  }
+
+  _toggleSheet(isVisible) {
+    Animated.spring(
       this.state.bottom,
       {
-        toValue: isVisible ? -500 : 0,
+        toValue: isVisible ? -50 : -500,
         duration: 200,
       },
     ).start();
-    const screenDelay = isVisible ? 200 : 0;
-    setTimeout(this.setState.bind(this, { isVisible: !isVisible }), screenDelay);
   }
 
   render() {
     return (
-      this.state.isVisible ?
-        <Animated.View style={[Styles.container, { bottom: this.state.bottom }]} /> :
-        null
+      <Animated.View style={[Styles.container, { bottom: this.state.bottom }]} />
     );
   }
 }
