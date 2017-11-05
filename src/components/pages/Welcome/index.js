@@ -3,6 +3,7 @@ import React from 'react';
 import {
   connectHOC,
   withBottomSheetHOC,
+  withModalHOC,
   withLoadingHOC,
   withNetworkStatusHOC,
 } from 'reena/src/utilities/HOCs';
@@ -31,7 +32,7 @@ const RealComp = withLoadingHOC(() => (
   <TextAtom>SMTH...</TextAtom>
 ));
 
-const TestComp = props => <TextAtom style={{ backgroundColor: 'teal' }}>{props.message}</TextAtom>;
+const TestComp = props => <TextAtom>{props.message}</TextAtom>;
 
 class WelcomePage extends React.Component {
   static navigationOptions = {
@@ -77,12 +78,12 @@ class WelcomePage extends React.Component {
         >
           View Usage Examples
         </ButtonMolecule>
-        <TextAtom>{JSON.stringify(this.props)}</TextAtom>
+        {/* <TextAtom>{JSON.stringify(this.props)}</TextAtom> */}
         <RealComp isLoading />
         <ButtonMolecule
           onPress={() => this.props.onToggleBottomSheet({
             render: () => <TestComp message={'this is a bottom sheet inside!!!'} />,
-            overlayStyle: { backgroundColor: 'rgba(0, 200, 30, 0.5)', },
+            overlayStyle: { backgroundColor: 'rgba(0, 0, 0, 0.4)', },
             bottomMenuContainerStyle: { backgroundColor: 'white', height: 200 },
           })}
           style={{ borderRadius: 5, marginVertical: 20 }}
@@ -90,9 +91,20 @@ class WelcomePage extends React.Component {
         >
           Show Bottom Sheet
         </ButtonMolecule>
+        <ButtonMolecule
+          onPress={() => this.props.onToggleModal({
+            render: () => <TestComp message={'this is a modal inside!!!'} />,
+            overlayStyle: { backgroundColor: 'rgba(0, 0, 0, 0.6)', },
+            modalContainerStyle: { backgroundColor: 'white', height: 250 },
+          })}
+          style={{ borderRadius: 5, marginVertical: 20 }}
+          textStyle={{ fontWeight: '300', fontSize: 14 }}
+        >
+          Show Modal
+        </ButtonMolecule>
       </ContainerMolecule>
     );
   }
 }
 
-export default withBottomSheetHOC(withNetworkStatusHOC(connectHOC(WelcomePage)));
+export default withModalHOC(withBottomSheetHOC(withNetworkStatusHOC(connectHOC(WelcomePage))));
