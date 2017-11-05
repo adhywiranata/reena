@@ -11,10 +11,17 @@
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "dependencies": {
+    "apollo-cache-inmemory": "^1.0.0",
+    "apollo-client": "^2.0.1",
+    "apollo-link-http": "^1.1.0",
     "axios": "^0.17.0",
+    "gql": "^1.1.2",
+    "graphql": "^0.11.7",
+    "graphql-tag": "^2.5.0",
     "hoist-non-react-statics": "^2.3.1",
     "lodash": "^4.17.4",
     "react": "16.0.0-beta.5",
+    "react-apollo": "^2.0.0",
     "react-native": "0.49.3",
     "react-native-config": "^0.9.0",
     "react-native-device-info": "^0.12.1",

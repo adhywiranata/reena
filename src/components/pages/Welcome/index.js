@@ -2,6 +2,7 @@ import React from 'react';
 
 import {
   connectHOC,
+  graphQLConnectHOC,
   withBottomSheetHOC,
   withModalHOC,
   withLoadingHOC,
@@ -52,6 +53,19 @@ class WelcomePage extends React.Component {
     };
   }
 
+  static graphQLQuery() {
+    return `
+      query {
+        allFilms {
+          films {
+            title
+            id
+          }
+        }
+      }
+    `;
+  }
+
   constructor(p, c) {
     super(p, c);
 
@@ -78,7 +92,7 @@ class WelcomePage extends React.Component {
         >
           View Usage Examples
         </ButtonMolecule>
-        {/* <TextAtom>{JSON.stringify(this.props)}</TextAtom> */}
+        {<TextAtom>{JSON.stringify(this.props.data)}</TextAtom>}
         <RealComp isLoading />
         <ButtonMolecule
           onPress={() => this.props.onToggleBottomSheet({
@@ -107,4 +121,4 @@ class WelcomePage extends React.Component {
   }
 }
 
-export default withModalHOC(withBottomSheetHOC(withNetworkStatusHOC(connectHOC(WelcomePage))));
+export default withModalHOC(withBottomSheetHOC(withNetworkStatusHOC(graphQLConnectHOC(connectHOC(WelcomePage)))));

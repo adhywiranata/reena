@@ -50,3 +50,6 @@ export const FONT_SIZES = {
   large: 16,
 };
 
+export const ERRORS = {
+  noGraphQLQuery: 'REE.NA warning: Please provide graphQLQuery static method on the React component you want to connect the graphql to. Ree.na deliberately ignores graphQL connection when this occured to avoid the app from breaking.',
+};
