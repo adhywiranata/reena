@@ -31,6 +31,7 @@ const RealComp = withLoadingHOC(() => (
   <TextAtom>SMTH...</TextAtom>
 ));
 
+const TestComp = props => <TextAtom>{props.message}</TextAtom>;
 
 class WelcomePage extends React.Component {
   static navigationOptions = {
@@ -79,14 +80,15 @@ class WelcomePage extends React.Component {
         <TextAtom>{JSON.stringify(this.props)}</TextAtom>
         <RealComp isLoading />
         <ButtonMolecule
-          onPress={() => this.props.onToggleBottomSheet()}
+          onPress={() => this.props.onToggleBottomSheet({
+            render: () => <TestComp message={'this is a bottom sheet inside!!!'} />,
+            containerStyle: { backgroundColor: 'white', alignItems: 'flex-start' },
+          })}
           style={{ borderRadius: 5, marginVertical: 20 }}
           textStyle={{ fontWeight: '300', fontSize: 14 }}
         >
-          Show Modal
+          Show Bottom Sheet
         </ButtonMolecule>
-        {/* <ScreenOverlayPagelet onPress={() => this.setState({ isModalVisible: false })} /> */}
-        {/* <BottomSheetPagelet /> */}
       </ContainerMolecule>
     );
   }

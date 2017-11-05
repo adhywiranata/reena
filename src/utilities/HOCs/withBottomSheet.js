@@ -13,17 +13,23 @@ const withBottomSheet = (WrappedComponent) => {
       super(props);
       this.state = {
         isBottomSheetVisible: false,
+        bottomComponent: () => <TextAtom>blah</TextAtom>,
+        containerStyle: {},
       };
 
       this._toggleBottomSheet = this._toggleBottomSheet.bind(this);
     }
 
-    _toggleBottomSheet() {
-      this.setState({ isBottomSheetVisible: !this.state.isBottomSheetVisible });
+    _toggleBottomSheet(params = {}) {
+      this.setState({
+        isBottomSheetVisible: !this.state.isBottomSheetVisible,
+        bottomComponent: params.render ? params.render : () => null,
+        containerStyle: params.containerStyle ? params.containerStyle : this.state.containerStyle,
+      });
     }
 
     render() {
-      const { isBottomSheetVisible } = this.state;
+      const { isBottomSheetVisible, containerStyle } = this.state;
       const injectedProps = {
         onToggleBottomSheet: this._toggleBottomSheet,
       };
@@ -34,7 +40,13 @@ const withBottomSheet = (WrappedComponent) => {
           isVisible={isBottomSheetVisible}
           onPress={this._toggleBottomSheet}
         />,
-        <BottomSheetPagelet key={3} isVisible={isBottomSheetVisible} />,
+        <BottomSheetPagelet
+          key={3}
+          isVisible={isBottomSheetVisible}
+          style={containerStyle}
+        >
+          {this.state.bottomComponent()}
+        </BottomSheetPagelet>,
       ];
     }
   }

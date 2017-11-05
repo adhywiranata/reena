@@ -33,7 +33,9 @@ export default class BottomSheet extends React.Component {
 
   render() {
     return (
-      <Animated.View style={[Styles.container, { bottom: this.state.bottom }]} />
+      <Animated.View style={[Styles.container, this.props.style, { bottom: this.state.bottom }]}>
+        {this.props.children}
+      </Animated.View>
     );
   }
 }
