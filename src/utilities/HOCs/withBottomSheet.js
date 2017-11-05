@@ -1,5 +1,4 @@
 import React from 'react';
-import { TextAtom } from 'reena/src/components/atoms';
 import hoistNonReactStatic from 'hoist-non-react-statics';
 
 import {
