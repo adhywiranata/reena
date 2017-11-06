@@ -26,7 +26,7 @@ export default class BottomSheet extends React.Component {
       this.state.bottom,
       {
         toValue: isVisible ? -50 : -(Dimensions.get('window').height),
-        bounciness: 8,
+        bounciness: 3,
       },
     ).start();
   }

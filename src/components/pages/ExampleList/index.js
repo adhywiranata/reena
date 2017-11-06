@@ -4,12 +4,16 @@ import {
   connectHOC,
 } from 'reena/src/utilities/HOCs';
 import {
+  ViewAtom,
   TextAtom,
 } from 'reena/src/components/atoms';
 import {
   ContainerMolecule,
   ButtonMolecule,
 } from 'reena/src/components/molecules';
+import {
+  SwipeToDismissViewOrganism,
+} from 'reena/src/components/organisms';
 import {
   sampleHelper,
 } from 'reena/src/utilities/helpers';
@@ -59,6 +63,15 @@ class ExampleListPage extends React.Component {
         <TextAtom style={Styles.logo}>
           {this.state.title}
         </TextAtom>
+        <ViewAtom style={{ flex: 1, width: '100%', backgroundColor: 'grey', padding: 20 }}>
+          {[1, 2, 3, 4, 5, 6].map(n => (
+            <SwipeToDismissViewOrganism key={n}>
+              <ViewAtom style={{ backgroundColor: 'white', padding: 15, borderRadius: 8, marginVertical: 5 }}>
+                <TextAtom>{'test\ntest2\ntest3'}</TextAtom>
+              </ViewAtom>
+            </SwipeToDismissViewOrganism>
+          ))}
+        </ViewAtom>
       </ContainerMolecule>
     );
   }

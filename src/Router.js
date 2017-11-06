@@ -6,6 +6,6 @@ import {
 } from './components/pages';
 
 export default StackNavigator({
-  Home: { screen: Welcome },
+  // Home: { screen: Welcome },
   Examples: { screen: ExampleList },
 });
