@@ -1,1 +1,5 @@
-// TODO: Map out organisms here
+import SwipeToDismissView from './SwipeToDismissView';
+
+export {
+  SwipeToDismissView as SwipeToDismissViewOrganism,
+};
