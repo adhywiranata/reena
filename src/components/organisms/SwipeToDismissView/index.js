@@ -5,16 +5,13 @@ import {
   Dimensions,
 } from 'react-native';
 
-// import {
-//   ViewAtom,
-// } from 'reena/src/components/atoms';
-
 export default class SwipeToDismissView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       opacity: new Animated.Value(1),
       height: new Animated.Value(100),
+      // display: new Animated.Value(1)
       left: new Animated.Value(0),
     };
 
@@ -27,9 +24,24 @@ export default class SwipeToDismissView extends React.Component {
       onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
       onMoveShouldSetPanResponder: (evt, gestureState) => true,
       onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
-      onPanResponderMove: Animated.event([
-        null, { dx: this.state.left },
-      ]),
+      onPanResponderMove: (evt, gestureState) => {
+        Animated.parallel([
+          Animated.timing(
+            this.state.left,
+            {
+              toValue: gestureState.dx,
+              duration: 1,
+            },
+          ),
+          Animated.timing(
+            this.state.opacity,
+            {
+              toValue: 1 - ((Math.abs(gestureState.dx) / Dimensions.get('window').width) * 1.5),
+              duration: 1,
+            },
+          ),
+        ]).start();
+      },
       onPanResponderRelease: (evt, gestureState) => {
         const screenWidth = Dimensions.get('window').width;
         if (gestureState.dx > screenWidth / 3) {
@@ -83,10 +95,6 @@ export default class SwipeToDismissView extends React.Component {
           ).start();
         }
       },
-      // onPanResponderMove: Animated.event([
-      //   null,
-      //   { dX: this.state.left },
-      // ]),
     });
   }
 
