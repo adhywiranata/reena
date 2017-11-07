@@ -10,7 +10,7 @@ export default class SwipeToDismissView extends React.Component {
     super(props);
     this.state = {
       opacity: new Animated.Value(1),
-      height: new Animated.Value(100),
+      height: new Animated.Value(props.containerHeight || 100),
       // display: new Animated.Value(1)
       left: new Animated.Value(0),
     };
@@ -50,7 +50,7 @@ export default class SwipeToDismissView extends React.Component {
               this.state.left,
               {
                 toValue: screenWidth,
-                bounciness: 5,
+                bounciness: this.props.bounciness || 5,
               },
             ),
             Animated.timing(
@@ -67,7 +67,7 @@ export default class SwipeToDismissView extends React.Component {
               this.state.left,
               {
                 toValue: -(screenWidth),
-                bounciness: 5,
+                bounciness: this.props.bounciness || 5,
               },
             ),
             Animated.timing(

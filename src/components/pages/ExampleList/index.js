@@ -65,11 +65,10 @@ class ExampleListPage extends React.Component {
           {this.state.title}
         </TextAtom>
         <ScrollViewAtom
-          style={{ flex: 1, width: '100%', backgroundColor: 'grey', padding: 20 }}
-          /* contentContainerStyle={{ alignItems: 'flex-start' }} */
+          style={{ flex: 1, width: '100%', backgroundColor: '#dddddd', padding: 20 }}
         >
           {[1, 2, 3, 4, 5, 6].map(n => (
-            <SwipeToDismissViewOrganism key={n}>
+            <SwipeToDismissViewOrganism key={n} containerHeight={100} bounciness={0}>
               <ViewAtom style={{ backgroundColor: 'white', padding: 15, borderRadius: 8, marginVertical: 5 }}>
                 <TextAtom>{'test\ntest2\ntest3'}</TextAtom>
               </ViewAtom>
