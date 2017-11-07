@@ -4,8 +4,9 @@ import {
   connectHOC,
 } from 'reena/src/utilities/HOCs';
 import {
-  ViewAtom,
+  ScrollViewAtom,
   TextAtom,
+  ViewAtom,
 } from 'reena/src/components/atoms';
 import {
   ContainerMolecule,
@@ -63,7 +64,10 @@ class ExampleListPage extends React.Component {
         <TextAtom style={Styles.logo}>
           {this.state.title}
         </TextAtom>
-        <ViewAtom style={{ flex: 1, width: '100%', backgroundColor: 'grey', padding: 20 }}>
+        <ScrollViewAtom
+          style={{ flex: 1, width: '100%', backgroundColor: 'grey', padding: 20 }}
+          /* contentContainerStyle={{ alignItems: 'flex-start' }} */
+        >
           {[1, 2, 3, 4, 5, 6].map(n => (
             <SwipeToDismissViewOrganism key={n}>
               <ViewAtom style={{ backgroundColor: 'white', padding: 15, borderRadius: 8, marginVertical: 5 }}>
@@ -71,7 +75,7 @@ class ExampleListPage extends React.Component {
               </ViewAtom>
             </SwipeToDismissViewOrganism>
           ))}
-        </ViewAtom>
+        </ScrollViewAtom>
       </ContainerMolecule>
     );
   }
