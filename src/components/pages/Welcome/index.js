@@ -29,10 +29,6 @@ import {
   getNewsLoadingStatusSelector,
 } from 'reena/src/model/modules/exampleNews/selectors';
 
-const RealComp = withLoadingHOC(() => (
-  <TextAtom>I should be ready after loading!</TextAtom>
-));
-
 const TestComp = props => <TextAtom>{props.message}</TextAtom>;
 
 class WelcomePage extends React.Component {
@@ -51,19 +47,6 @@ class WelcomePage extends React.Component {
     return {
       fetchExampleNews: () => dispatch({ type: 'FETCH_EXAMPLE_NEWS' }),
     };
-  }
-
-  static graphQLQuery() {
-    return `
-      query {
-        allFilms {
-          films {
-            title
-            id
-          }
-        }
-      }
-    `;
   }
 
   constructor(p, c) {
@@ -90,10 +73,8 @@ class WelcomePage extends React.Component {
           style={{ borderRadius: 5, marginVertical: 20 }}
           textStyle={{ fontWeight: '300', fontSize: 14 }}
         >
-          View Usage Examples
+          View Examples Screen
         </ButtonMolecule>
-        {<TextAtom>{JSON.stringify(this.props.data)}</TextAtom>}
-        <RealComp isLoading />
         <ButtonMolecule
           onPress={() => this.props.onToggleBottomSheet({
             render: () => <TestComp message={'this is a bottom sheet inside!!!'} />,
@@ -121,4 +102,4 @@ class WelcomePage extends React.Component {
   }
 }
 
-export default withModalHOC(withBottomSheetHOC(withNetworkStatusHOC(graphQLConnectHOC(connectHOC(WelcomePage)))));
+export default withModalHOC(withBottomSheetHOC(withNetworkStatusHOC(connectHOC(WelcomePage))));
