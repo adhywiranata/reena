@@ -26,11 +26,9 @@ class ExampleListPage extends React.Component {
   static navigationOptions = ({ navigation }) => { 
     const { goBack } = navigation;
     return {
-      // headerLeft: ({ goBack }) => ({
-      //   left: null,
-      // }),
       headerLeft: (
         <ButtonMolecule
+          style={Styles.backButton}
           textStyle={Styles.backButtonLabel}
           onPress={() => goBack()}
         >
@@ -54,25 +52,36 @@ class ExampleListPage extends React.Component {
     super(p, c);
 
     this.state = {
-      title: 'REE.NA',
+      title: 'HELLO.',
+      description: 'Pick some screens below',
+      pages: [
+        { id: 1, name: 'Swipable List' },
+        { id: 2, name: 'Swipe Card' },
+        { id: 3, name: 'Collapsible List' },
+        { id: 4, name: 'Drag and Drop' },
+        { id: 5, name: 'Redux Integration' },
+        { id: 6, name: 'GraphQL Integration' },
+        { id: 7, name: 'Hiding on-scroll Header' },
+      ],
     };
   }
 
   render() {
     return (
       <ContainerMolecule style={Styles.container}>
-        <TextAtom style={Styles.logo}>
-          {this.state.title}
-        </TextAtom>
         <ScrollViewAtom
-          style={{ flex: 1, width: '100%', backgroundColor: '#dddddd', padding: 20 }}
+          style={{ flex: 1, width: '100%', padding: 20 }}
         >
-          {[1, 2, 3, 4, 5, 6].map(n => (
-            <SwipeToDismissViewOrganism key={n} containerHeight={100} bounciness={0}>
-              <ViewAtom style={{ backgroundColor: 'white', padding: 15, borderRadius: 8, marginVertical: 5 }}>
-                <TextAtom>{'test\ntest2\ntest3'}</TextAtom>
-              </ViewAtom>
-            </SwipeToDismissViewOrganism>
+          <TextAtom style={Styles.logo}>
+            {this.state.title}
+          </TextAtom>
+          <TextAtom style={Styles.desc}>
+            {this.state.description}
+          </TextAtom>
+          {this.state.pages.map(page => (
+            <ViewAtom key={page.id} style={{ backgroundColor: 'white', padding: 15, borderRadius: 3, marginVertical: 5 }}>
+              <TextAtom>{page.name}</TextAtom>
+            </ViewAtom>
           ))}
         </ScrollViewAtom>
       </ContainerMolecule>

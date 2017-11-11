@@ -54,7 +54,6 @@ class WelcomePage extends React.Component {
 
     this.state = {
       title: 'REE.NA',
-      // isModalVisible: false,
     };
   }
 
