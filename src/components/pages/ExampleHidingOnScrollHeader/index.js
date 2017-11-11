@@ -1,4 +1,7 @@
 import React from 'react';
+import {
+  Animated
+} from 'react-native';
 
 import {
   connectHOC,
@@ -23,21 +26,33 @@ import { COLORS } from 'reena/src/constants';
 import Styles from './styles';
 
 class ExampleHidingOnScrollHeaderPage extends React.Component {
-  static navigationOptions = ({ navigation }) => { 
-    const { goBack } = navigation;
+  // static navigationOptions = ({ navigation }) => { 
+  //   const { goBack } = navigation;
+  //   return {
+  //     headerLeft: (
+  //       <ButtonMolecule
+  //         style={Styles.backButton}
+  //         textStyle={Styles.backButtonLabel}
+  //         onPress={() => goBack()}
+  //       >
+  //         BACK
+  //       </ButtonMolecule>
+  //     ),
+  //     headerStyle: {
+  //       backgroundColor: COLORS.grey.lynch,
+  //       borderBottomWidth: 0,
+  //     },
+  //   }
+  // }
+
+  static navigationOptions = ({ navigation }) => {
     return {
-      headerLeft: (
-        <ButtonMolecule
-          style={Styles.backButton}
-          textStyle={Styles.backButtonLabel}
-          onPress={() => goBack()}
-        >
-          BACK
-        </ButtonMolecule>
-      ),
-      headerStyle: {
-        backgroundColor: COLORS.grey.lynch,
-        borderBottomWidth: 0,
+      header: () => {
+        return (
+          <Animated.View style={{ backgroundColor: '#446CB3', paddingVertical: 30, paddingHorizontal: 10 }}>
+            <TextAtom style={{ color: '#FFFFFF' }}>HEADER</TextAtom>
+          </Animated.View>
+        );
       },
     }
   }
@@ -95,7 +110,7 @@ class ExampleHidingOnScrollHeaderPage extends React.Component {
             {this.state.description}
           </TextAtom>
           {this.state.products.map(product => (
-            <ViewAtom key={product.id} style={{ backgroundColor: 'white', padding: 15, borderRadius: 3, marginVertical: 5 }}>
+            <ViewAtom key={product.id} style={{ backgroundColor: '#F5F5F5', padding: 15, borderRadius: 3, marginVertical: 5 }}>
               <TextAtom>{product.name}</TextAtom>
             </ViewAtom>
           ))}

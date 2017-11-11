@@ -4,7 +4,7 @@ import { COLORS } from 'reena/src/constants';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.grey.lynch,
+    backgroundColor: COLORS.white,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -12,12 +12,12 @@ export default StyleSheet.create({
     fontSize: 36,
     fontWeight: '100',
     letterSpacing: 3,
-    color: COLORS.grey.iron,
+    color: COLORS.black,
   },
   desc: {
     fontSize: 14,
     fontWeight: '100',
-    color: COLORS.grey.iron,
+    color: COLORS.black,
     marginBottom: 20,
   },
   backButton: {
