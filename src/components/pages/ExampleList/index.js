@@ -6,6 +6,7 @@ import {
 import {
   ScrollViewAtom,
   TextAtom,
+  TouchableAtom,
   ViewAtom,
 } from 'reena/src/components/atoms';
 import {
@@ -55,13 +56,13 @@ class ExampleListPage extends React.Component {
       title: 'HELLO.',
       description: 'Pick some screens below',
       pages: [
-        { id: 1, name: 'Swipable List' },
-        { id: 2, name: 'Swipe Card' },
-        { id: 3, name: 'Collapsible List' },
-        { id: 4, name: 'Drag and Drop' },
-        { id: 5, name: 'Redux Integration' },
-        { id: 6, name: 'GraphQL Integration' },
-        { id: 7, name: 'Hiding on-scroll Header' },
+        { id: 1, name: 'Swipable List', link: null },
+        { id: 2, name: 'Swipe Card', link: null },
+        { id: 3, name: 'Collapsible List', link: null },
+        { id: 4, name: 'Drag and Drop', link: null },
+        { id: 5, name: 'Redux Integration', link: null },
+        { id: 6, name: 'GraphQL Integration', link: null },
+        { id: 7, name: 'Hiding on-scroll Header', link: 'ExampleHidingOnScrollHeader' },
       ],
     };
   }
@@ -79,9 +80,11 @@ class ExampleListPage extends React.Component {
             {this.state.description}
           </TextAtom>
           {this.state.pages.map(page => (
-            <ViewAtom key={page.id} style={{ backgroundColor: 'white', padding: 15, borderRadius: 3, marginVertical: 5 }}>
-              <TextAtom>{page.name}</TextAtom>
-            </ViewAtom>
+            <TouchableAtom key={page.id} onPress={this.props.navigation.navigate.bind(this, page.link)}>
+              <ViewAtom style={{ backgroundColor: 'white', padding: 15, borderRadius: 3, marginVertical: 5 }}>
+                <TextAtom>{page.name}</TextAtom>
+              </ViewAtom>
+            </TouchableAtom>
           ))}
         </ScrollViewAtom>
       </ContainerMolecule>
