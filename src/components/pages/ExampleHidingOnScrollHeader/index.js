@@ -26,34 +26,10 @@ import { COLORS } from 'reena/src/constants';
 import Styles from './styles';
 
 class ExampleHidingOnScrollHeaderPage extends React.Component {
-  // static navigationOptions = ({ navigation }) => { 
-  //   const { goBack } = navigation;
-  //   return {
-  //     headerLeft: (
-  //       <ButtonMolecule
-  //         style={Styles.backButton}
-  //         textStyle={Styles.backButtonLabel}
-  //         onPress={() => goBack()}
-  //       >
-  //         BACK
-  //       </ButtonMolecule>
-  //     ),
-  //     headerStyle: {
-  //       backgroundColor: COLORS.grey.lynch,
-  //       borderBottomWidth: 0,
-  //     },
-  //   }
-  // }
 
   static navigationOptions = ({ navigation }) => {
     return {
-      header: () => {
-        return (
-          <Animated.View style={{ backgroundColor: '#446CB3', paddingVertical: 30, paddingHorizontal: 10 }}>
-            <TextAtom style={{ color: '#FFFFFF' }}>HEADER</TextAtom>
-          </Animated.View>
-        );
-      },
+      header: null,
     }
   }
   
@@ -69,6 +45,8 @@ class ExampleHidingOnScrollHeaderPage extends React.Component {
     this.state = {
       title: 'Hi.',
       description: 'try scrolling. The header will hide when you scroll down.',
+      headerTop: new Animated.Value(0),
+      prevScrollY: 0,
       products: [
         { id: 1, name: 'Motivational Book' },
         { id: 2, name: 'Motivational Book' },
@@ -95,20 +73,52 @@ class ExampleHidingOnScrollHeaderPage extends React.Component {
         { id: 23, name: 'Motivational Book' },
       ],
     };
+
+    this._scrollPage = this._scrollPage.bind(this);
+  }
+
+  _scrollPage(event) {
+    const y = event.nativeEvent.contentOffset.y;
+    const prevY = this.state.prevScrollY;
+    if(y > prevY) {
+      Animated.timing(
+        this.state.headerTop,
+        {
+          toValue: -50,
+          duration: 200,
+        }
+      ).start();
+    } else {
+      Animated.timing(
+        this.state.headerTop,
+        {
+          toValue: 0,
+          duration: 200,
+        }
+      ).start();
+    }
+
+    this.setState({ prevScrollY: y });
   }
 
   render() {
     return (
       <ContainerMolecule style={Styles.container}>
+        <Animated.View style={{ backgroundColor: '#446CB3', paddingVertical: 30, paddingHorizontal: 10, width: '100%', position: 'absolute', top: this.state.headerTop, zIndex: 995 }}>
+          <TextAtom style={{ color: '#FFFFFF' }}>HEADER</TextAtom>
+        </Animated.View>
         <ScrollViewAtom
-          style={{ flex: 1, width: '100%', padding: 20 }}
+          onScroll={this._scrollPage}
+          style={{ flex: 1, width: '100%', paddingHorizontal: 20, paddingTop: 70 }}
         >
-          <TextAtom style={Styles.logo}>
-            {this.state.title}
-          </TextAtom>
-          <TextAtom style={Styles.desc}>
-            {this.state.description}
-          </TextAtom>
+          <ViewAtom style={{ backgroundColor: 'white', paddingVertical: 10 }}>
+            <TextAtom style={Styles.logo}>
+              {this.state.title}
+            </TextAtom>
+            <TextAtom style={Styles.desc}>
+              {this.state.description}
+            </TextAtom>
+          </ViewAtom>
           {this.state.products.map(product => (
             <ViewAtom key={product.id} style={{ backgroundColor: '#F5F5F5', padding: 15, borderRadius: 3, marginVertical: 5 }}>
               <TextAtom>{product.name}</TextAtom>
