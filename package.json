@@ -25,7 +25,6 @@
     "react-native": "0.49.3",
     "react-native-config": "^0.9.0",
     "react-native-device-info": "^0.12.1",
-    "react-native-fabric": "^0.5.1",
     "react-native-image-picker": "^0.26.7",
     "react-native-maps": "^0.17.1",
     "react-native-snap-carousel": "^3.4.0",

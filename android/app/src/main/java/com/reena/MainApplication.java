@@ -7,10 +7,6 @@ import com.airbnb.android.react.maps.MapsPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
-import com.airbnb.android.react.maps.MapsPackage;
-import com.imagepicker.ImagePickerPackage;
-import com.learnium.RNDeviceInfo.RNDeviceInfo;
-import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -31,10 +27,6 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new MapsPackage(),
-            new ImagePickerPackage(),
-            new RNDeviceInfo(),
-            new ReactNativeConfigPackage(),
             new MapsPackage(),
             new ImagePickerPackage(),
             new RNDeviceInfo(),
